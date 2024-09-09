@@ -30,7 +30,17 @@ import { ConfigModule } from '@nestjs/config';
 
       /* entities: [], */
       autoLoadEntities: true,
-      synchronize: true
+      synchronize: true,
+
+      ssl: process.env.POSTGRES_SSL === 'true',
+      extra: {
+        ssl: 
+          process.env.POSTGRES_SSL === 'true'
+          ? {
+              rejectUnauthorized: false
+          }
+          : null,
+      }, 
     }),
     GatosModule,
     RazasModule,

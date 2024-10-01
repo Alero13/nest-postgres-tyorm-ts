@@ -36,6 +36,7 @@ export class UsuariosService {
     return this.usuarioRepository.find();
   }
 
+  
   /* findOne(id: number) {
     return `This action returns a #${id} usuario`;
   }

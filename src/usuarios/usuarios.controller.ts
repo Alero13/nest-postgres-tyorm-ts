@@ -4,6 +4,11 @@ import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { Auth } from 'src/auth/decorators/auth.decorator';
 import { Role } from 'src/common/roles.enum';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+
+@ApiBearerAuth()
+
+@ApiTags('Usuarios')
 
 @Auth(Role.ADMINISTRADOR)
 

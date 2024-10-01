@@ -10,14 +10,16 @@ import { Role } from '../common/roles.enum';
 import { Auth } from './decorators/auth.decorator';
 import { UsuarioActivoInterface } from 'src/common/interfaces/usuario-activo.interface';
 import { UsuarioActivo } from 'src/common/decorators/usuario-activo.decorator';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
-interface RequestWithUser extends Request {
+/* interface RequestWithUser extends Request {
     usuario: {
         email: string,
         rol: string
     }
-}
+} */
 
+@ApiTags('Autenticacion')
 @Controller('auth')
 export class AuthController {
 
@@ -75,6 +77,8 @@ export class AuthController {
             
             /* req.usuario)
     } */
+
+    @ApiBearerAuth()
 
     @Get('Perfil')  
    /*  @Roles(Role.ADMINISTRADOR)

@@ -1,5 +1,5 @@
 import { Gato } from "src/gatos/entities/gato.entity";
-import { Column, Entity, OneToMany } from "typeorm";
+import { Column, DeleteDateColumn, Entity, OneToMany } from "typeorm";
 
 @Entity()
 export class Raza {
@@ -13,4 +13,7 @@ export class Raza {
     /* @OneToMany( () => Gato, (gato) => gato.id) */
     @OneToMany( () => Gato, (gato) => gato.raza)
     gatos: Gato[];
+
+    @DeleteDateColumn()
+    deletedAt: Date
 }

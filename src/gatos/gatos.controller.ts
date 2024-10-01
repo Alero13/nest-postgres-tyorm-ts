@@ -6,6 +6,15 @@ import { Role } from 'src/common/roles.enum';
 import { Auth } from 'src/auth/decorators/auth.decorator';
 import { UsuarioActivo } from 'src/common/decorators/usuario-activo.decorator';
 import { UsuarioActivoInterface } from 'src/common/interfaces/usuario-activo.interface';
+import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags, ApiUnauthorizedResponse } from '@nestjs/swagger';
+
+@ApiBearerAuth()
+
+@ApiTags('Gatos')
+
+@ApiUnauthorizedResponse({
+  description: 'Unauthorized Bearer Auth',
+})
 
 @Auth(Role.USUARIO)
 @Controller('gatos')
@@ -13,6 +22,10 @@ export class GatosController {
   constructor(private readonly gatosService: GatosService) {}
 
   @Post()
+
+  @ApiCreatedResponse({ description: 'The record has been successfully created.'})
+  @ApiForbiddenResponse({ description: 'Forbidden.'})
+
   /* create(@Body() createGatoDto: CreateGatoDto) { */
 
   create(@Body() createGatoDto: CreateGatoDto, @UsuarioActivo() usuario: UsuarioActivoInterface) {

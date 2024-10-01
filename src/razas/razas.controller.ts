@@ -4,6 +4,11 @@ import { CreateRazaDto } from './dto/create-raza.dto';
 import { UpdateRazaDto } from './dto/update-raza.dto';
 import { Auth } from 'src/auth/decorators/auth.decorator';
 import { Role } from 'src/common/roles.enum';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+
+@ApiBearerAuth()
+
+@ApiTags('Razas')
 
 @Auth(Role.ADMINISTRADOR)
 @Controller('razas')

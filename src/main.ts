@@ -18,6 +18,8 @@ async function bootstrap() {
   
   /* await app.listen(5000); */
 
+  app.enableCors();
+
   const config = new DocumentBuilder()
     .setTitle("API REST ful")
     .setDescription("API RES Tful de gatos")

@@ -16,7 +16,7 @@ export class Usuario {
 
     /* @Column({ nullable: false }) */
     @Column({ nullable: false, select: false })
-    contraseña: string;
+    password: string;
 
     /* @Column({ default: 'usuario'}) */
     @Column({ type: 'enum', default: Role.USUARIO, enum: Role})

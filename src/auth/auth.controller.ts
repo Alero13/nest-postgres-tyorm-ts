@@ -2,10 +2,10 @@ import { Body, Controller, Get, HttpCode, HttpStatus, Post, Req, UseGuards } fro
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
-import { AuthGuard } from './guard/auth.guard';
-import { Request } from 'express';
-import { Roles } from './decorators/roles.decorator';
-import { RolesGuard } from './guard/roles.guard';
+//import { AuthGuard } from './guard/auth.guard';
+//import { Request } from 'express';
+//import { Roles } from './decorators/roles.decorator';
+//import { RolesGuard } from './guard/roles.guard';
 import { Role } from '../common/roles.enum';
 import { Auth } from './decorators/auth.decorator';
 import { UsuarioActivoInterface } from 'src/common/interfaces/usuario-activo.interface';

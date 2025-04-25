@@ -17,7 +17,7 @@ export class AuthService {
 
     /* async register(registerDto: RegisterDto){ */
 
-    async register({nombre, email, contraseña}: RegisterDto){
+    async register({nombre, email, password}: RegisterDto){
         //return 'register'
 
         /* const usuario = await this.usuarioService.findOneByEmail(registerDto.email) */
@@ -36,7 +36,7 @@ export class AuthService {
         await this.usuarioService.create({
             nombre, 
             email, 
-            contraseña: await bcryptjs.hash(contraseña, 10)})
+            password: await bcryptjs.hash(password, 10)})
 
         return {
             nombre,
@@ -46,7 +46,7 @@ export class AuthService {
 
     /* login(loginDto: LoginDto) { */
     /* return 'login'; */
-    async login({ email, contraseña}: LoginDto) {
+    async login({ email, password}: LoginDto) {
         
         /* const usuario = await this.usuarioService.findOneByEmail(email) */
         const usuario = await this.usuarioService.findOneByEmailWithPassword(email)
@@ -55,7 +55,7 @@ export class AuthService {
             throw new UnauthorizedException('email no existe ')
         }
 
-        const isContraseñaValida = await bcryptjs.compare(contraseña, usuario.contraseña)
+        const isContraseñaValida = await bcryptjs.compare(password, usuario.password)
 
         if(!isContraseñaValida) {
             throw new UnauthorizedException('contraseña incorrecta')

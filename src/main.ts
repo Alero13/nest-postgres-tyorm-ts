@@ -22,7 +22,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle("API REST ful")
-    .setDescription("API RES Tful de gatos")
+    .setDescription("API RESTful de gatos")
     .setVersion("1.0")
     .addBearerAuth()
     .build();
